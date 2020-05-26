@@ -9,11 +9,12 @@ import { IVerificationResult, ICryptoToken, IPayloadProtectionOptions } from 've
 import JwsToken from './jws/JwsToken';
 import { IJwsSigningOptions, IJwtSigningOptions } from './IJoseOptions';
 import JwtToken from './jwt/JwtToken';
+import { JoseProtocol } from './index';
 
 /**
  * Class to implement the Jwt protocol.
  */
-export default class JwtProtocol {
+export default class JwtProtocol extends JoseProtocol {
 
   /**
    * Signs contents using the given private key reference.
@@ -24,7 +25,8 @@ export default class JwtProtocol {
    * @param options used for the signature. These options override the options provided in the constructor.
    * @returns Signed payload in requested format.
    */
-   public async sign (signingKeyReference: string | KeyReferenceOptions, payload: object, options: IPayloadProtectionOptions): Promise<ICryptoToken> {
+   public async sign (signingKeyReference: string | KeyReferenceOptions, payload: object, _format: ProtectionFormat, options: IPayloadProtectionOptions): Promise<ICryptoToken> {
+     
     const jwtOptions: IJwtSigningOptions = JwsToken.fromPayloadProtectionOptions(options);
     const token: JwtToken = new JwtToken(jwtOptions);
     return JwsToken.toCryptoToken(ProtectionFormat.JwsCompactJson, await token.sign(signingKeyReference, payload), options);

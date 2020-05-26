@@ -23,7 +23,7 @@ export interface IPayloadProtection {
    * @param options used for the signature. These options override the options provided in the constructor.
    * @returns Signed payload in requested format.
    */
-   sign (signingKeyReference: string | KeyReferenceOptions, payload: Buffer, format: string, options?: IPayloadProtectionOptions): Promise<ICryptoToken>;
+  sign (signingKeyReference: string | KeyReferenceOptions, payload: Buffer | object, format?: string, options?: IPayloadProtectionOptions): Promise<ICryptoToken>;
 
   /**
    * Verify the signature.

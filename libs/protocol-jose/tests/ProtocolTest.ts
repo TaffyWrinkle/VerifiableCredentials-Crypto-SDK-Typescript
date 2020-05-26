@@ -18,7 +18,6 @@ export default class ProtocolTest implements IPayloadProtection {
     resolve(signature);
     });
   }
-
   public verify (_validationKeys: PublicKey[], _payload: Buffer, _signature: ICryptoToken, _options?: IPayloadProtectionOptions): Promise<IVerificationResult> {
     return new Promise(resolve => {
       resolve({result: true, reason:'', payload: null, statusCode:0, alg:'' });

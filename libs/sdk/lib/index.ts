@@ -10,4 +10,4 @@ export { CryptoFactoryNode } from 'verifiablecredentials-crypto-sdk-typescript-p
 export { KeyStoreKeyVault } from 'verifiablecredentials-crypto-sdk-typescript-plugin-keyvault';
 export { KeyStoreFactory, CryptoFactoryManager, SubtleCryptoFactory } from 'verifiablecredentials-crypto-sdk-typescript-plugin-factory';
 export { IPayloadProtectionOptions, IPayloadProtection, ICryptoToken } from 'verifiablecredentials-crypto-sdk-typescript-protocols-common';
-export { JoseProtocol, JoseConstants } from 'verifiablecredentials-crypto-sdk-typescript-protocol-jose';
+export { JwtProtocol, JoseProtocol, JoseConstants } from 'verifiablecredentials-crypto-sdk-typescript-protocol-jose';

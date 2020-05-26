@@ -17,13 +17,14 @@ const EXPIRY_IN_SECONDS = 3600;
 /**
  * Class for handling JWT token operations.
  */
-export default class JwtToken {
+export default class JwtToken  extends JwsToken {
 
   /**
    * Create an Jws token object
    * @param options Set of jws token options
    */
   constructor(public options?: IJwtSigningOptions) {
+    super(options);
   }
   
   /**
@@ -37,6 +38,7 @@ export default class JwtToken {
   public async sign(
     signingKeyReference: string | KeyReferenceOptions,
     payload: object,
+    _format?: ProtectionFormat,
     options?: IJwtSigningOptions
   ): Promise<JwsToken> {
 
